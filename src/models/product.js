@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-  const { Schema } = mongoose;
+const mongoose =require('mongoose')
+const { Schema,model } = mongoose;
 
   const productSchema = new Schema({
     name: {
@@ -10,4 +10,7 @@ import mongoose from 'mongoose';
     price: Number,
     description:  String,
     category:String,
+    units:String,
   });
+
+module.exports = model('Product', productSchema)
