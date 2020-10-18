@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose =require('mongoose')
 const app = express();
+const appRoutes = require('./routes/main')
 
+
+app.use(appRoutes)
 
 async function start(){
     try{
@@ -19,10 +22,3 @@ async function start(){
 }
 
 start()
-
-// app.get('/',function(req,res){
-//    // res.end('test1');
-//     res.send({
-//         msg:'hello my dear friend'
-//     })
-// })
