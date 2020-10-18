@@ -13,7 +13,7 @@ exports.product_list = async function(req, res) {
 // get product details
 exports.product_detail = async function(req, res) {
     // res.send('NOT IMPLEMENTED: product detail: ' + req.params.id);
-    const product = await Catalog.findById(req.id).exec()
+    const product = await Catalog.findById(req.params.id).exec()
     res.send({
         product
     })
@@ -21,14 +21,25 @@ exports.product_detail = async function(req, res) {
 
 // create product's form.
 exports.product_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: product create GET');
+    console.log(Catalog.schema);
+    res.send(Catalog.schema);
 };
 
 // create product(post).
-exports.product_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: product create POST');
+exports.product_create_post = async function(req, res) {
+    const product = new Catalog({
+        name: req.body.name,
+        price:req.body.price,
+        description:req.body.description,
+        category:req.body.category,
+        units:req.body.units,
+    })
+    console.log(req.body);
+    console.log('---');
+    console.log(req.body.name);
+    await product.save();
+    res.send();
 };
-
 // delete product's form.
 exports.product_delete_get = function(req, res) {
     res.send('NOT IMPLEMENTED: product delete GET');

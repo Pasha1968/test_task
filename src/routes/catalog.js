@@ -9,7 +9,7 @@ var product_controller = require('../controllers/productController');
 router.get('/product/create', product_controller.product_create_get);
 
 // POST request for creating product.
-router.post('/product/create', product_controller.product_create_get);
+router.post('/product/create', product_controller.product_create_post);
 
 // GET request to delete product.
 router.get('/product/:id/delete', product_controller.product_create_get);
