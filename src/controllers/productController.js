@@ -56,10 +56,21 @@ exports.product_delete_post = async function(req, res) {
 
 // refresh product's form
 exports.product_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: product update GET');
+    console.log(Catalog.schema);
+    res.send(Catalog.schema);
 };
 
 // refresh product(post).
-exports.product_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: product update POST');
+exports.product_update_post = async function(req, res) {
+    const update ={
+        name: req.body.name,
+        price:req.body.price,
+        description:req.body.description,
+        category:req.body.category,
+        units:req.body.units,
+    }
+    await Catalog.findOneAndUpdate(req.params.id,update)
+    console.log(req.params.id)
+    console.log(update)
+    res.send({msg:'hell'})
 };
