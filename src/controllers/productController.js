@@ -1,13 +1,22 @@
 var Product = require('../models/product');
+const Catalog = require('../models/product')
+
 
 // get all list
-exports.product_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: product list');
+exports.product_list = async function(req, res) {
+    const products = await Catalog.find({})
+    res.send({
+        products
+    })
 };
 
 // get product details
-exports.product_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: product detail: ' + req.params.id);
+exports.product_detail = async function(req, res) {
+    // res.send('NOT IMPLEMENTED: product detail: ' + req.params.id);
+    const product = await Catalog.findById(req.id).exec()
+    res.send({
+        product
+    })
 };
 
 // create product's form.

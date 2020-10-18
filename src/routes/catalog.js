@@ -24,9 +24,9 @@ router.get('/product/:id/update', product_controller.product_create_get);
 router.post('/product/:id/update', product_controller.product_create_get);
 
 // GET request for one product.
-router.get('/product/:id', product_controller.product_create_get);
+router.get('/product/:id', product_controller.product_detail);
 
 // GET request for list of all products
-router.get('/product', product_controller.product_create_get);
+router.get('/', product_controller.product_list);
 
 module.exports = router;
