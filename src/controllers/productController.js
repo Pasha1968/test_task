@@ -41,13 +41,17 @@ exports.product_create_post = async function(req, res) {
     res.send();
 };
 // delete product's form.
-exports.product_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: product delete GET');
+exports.product_delete_get = async function(req, res) {
+    const product = await Catalog.findById(req.params.id,'name ').exec()
+    res.send({
+        product
+    })
 };
 
 // delete product(post).
-exports.product_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: product delete POST');
+exports.product_delete_post = async function(req, res) {
+    await Catalog.findByIdAndRemove(req.params.id)
+    res.send();
 };
 
 // refresh product's form
