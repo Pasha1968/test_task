@@ -1,5 +1,4 @@
 const {Router} = require('express')
-const Catalog = require('../models/product')
 const router = Router()
 
 

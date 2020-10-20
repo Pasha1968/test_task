@@ -1,4 +1,3 @@
-var Product = require('../models/product');
 const Catalog = require('../models/product')
 
 
