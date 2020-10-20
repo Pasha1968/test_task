@@ -69,6 +69,5 @@ exports.product_update_post = async function(req, res) {
     }
     await Catalog.findOneAndUpdate(req.params.id,update)
     console.log(req.params.id)
-    console.log(update)
     res.send({msg:'hell'})
 };
