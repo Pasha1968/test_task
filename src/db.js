@@ -1,11 +1,13 @@
 const mongoose =require('mongoose')
 
+
 function connect(){
-    mongoose.connect('mongodb://localhost:27017/shop',{
-    // mongoose.connect('mongodb+srv://root:root@cluster0.d33er.mongodb.net/test?retryWrites=true&w=majority',{
-    useNewUrlParser:true,
-    // useFindAndModify:false,
-})
-console.log('db connections')
+    console.log('db connections')
+    console.log(process.env.DB_LOCAL)
+    return(
+        mongoose.connect(process.env.DB_LOCAL,{
+            useNewUrlParser:true,
+        })
+    )
 }
 module.exports = connect
