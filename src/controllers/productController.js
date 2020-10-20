@@ -38,7 +38,7 @@ exports.product_create_post = async function(req, res) {
     console.log('---');
     console.log(req.body.name);
     await product.save();
-    res.send();
+    res.send(product.id);
 };
 // delete product's form.
 exports.product_delete_get = async function(req, res) {
