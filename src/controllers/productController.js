@@ -12,7 +12,6 @@ exports.product_list = async function(req, res) {
 
 // get product details
 exports.product_detail = async function(req, res) {
-    // res.send('NOT IMPLEMENTED: product detail: ' + req.params.id);
     const product = await Catalog.findById(req.params.id).exec()
     res.send({
         product

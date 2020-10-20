@@ -5,7 +5,7 @@ var product_controller = require('../controllers/productController');
 
 
 
-// GET-запрос для создания. Должен появиться до маршрута для id
+// GET request for creating product.
 router.get('/product/create', product_controller.product_create_get);
 
 // POST request for creating product.
