@@ -51,7 +51,7 @@ exports.product_delete_get = async function(req, res) {
 // delete product(post).
 exports.product_delete_post = async function(req, res) {
     await Catalog.findByIdAndRemove(req.params.id)
-    res.send();
+    res.send(req.params.id);
 };
 
 // refresh product's form
