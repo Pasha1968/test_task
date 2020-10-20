@@ -10,7 +10,7 @@ const { Schema,model } = mongoose;
     price: Number,
     description:  String,
     category:String,
-    units:String,
+    units:Number,
   });
 
 module.exports = model('Product', productSchema)

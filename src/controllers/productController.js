@@ -40,7 +40,7 @@ exports.product_create_post = async function(req, res) {
 };
 // delete product's form.
 exports.product_delete_get = async function(req, res) {
-    const product = await Catalog.findById(req.params.id,'name ').exec()
+    const product = await Catalog.findById(req.params.id).exec()
     res.send({
         product
     })
@@ -53,9 +53,10 @@ exports.product_delete_post = async function(req, res) {
 };
 
 // refresh product's form
-exports.product_update_get = function(req, res) {
+exports.product_update_get = async function(req, res) {
+    const product = await Catalog.findById(req.params.id).exec()
     console.log(Catalog.schema);
-    res.send(Catalog.schema);
+    res.send({product:product, schema:Catalog.schema});
 };
 
 // refresh product(post).
@@ -69,5 +70,5 @@ exports.product_update_post = async function(req, res) {
     }
     await Catalog.findOneAndUpdate(req.params.id,update)
     console.log(req.params.id)
-    res.send({msg:'hell'})
+    res.send(update.id)
 };
